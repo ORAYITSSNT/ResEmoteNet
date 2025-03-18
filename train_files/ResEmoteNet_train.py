@@ -2,6 +2,18 @@ import torch
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
+import sys
+import os
+
+# Get the absolute path of the current script
+current_script_path = os.path.abspath(__file__)
+
+# Get the project root directory (two levels up from the current script)
+project_root = os.path.dirname(os.path.dirname(current_script_path))
+
+# Add the project root directory to the Python path
+if project_root not in sys.path:
+    sys.path.append(project_root)
 
 from torch.utils.data import DataLoader
 from torchvision import transforms
