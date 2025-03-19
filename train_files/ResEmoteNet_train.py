@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 from approach.ResEmoteNet import ResEmoteNet
 from get_dataset import Four4All
 
-device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using {device} device")
 
 # Transform the dataset
@@ -45,8 +45,8 @@ train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
 train_image, train_label = next(iter(train_loader))
 
 
-val_dataset = Four4All(csv_file='/kaggle/working/data_last/valid_labels.csv', 
-                       img_dir='/kaggle/working/data_last/valid/', transform=transform)
+val_dataset = Four4All(csv_file='/kaggle/working/data_last/val_labels.csv', 
+                       img_dir='/kaggle/working/data_last/val', transform=transform)
 val_loader = DataLoader(val_dataset, batch_size=16, shuffle=True)
 val_image, val_label = next(iter(val_loader))
 
