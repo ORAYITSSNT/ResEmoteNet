@@ -39,20 +39,20 @@ transform = transforms.Compose([
 ])
 
 # Load the dataset
-train_dataset = Four4All(csv_file='data/train_labels.csv',
-                         img_dir='data/train', transform=transform)
+train_dataset = Four4All(csv_file='/kaggle/working/data_last/train_labels.csv',
+                         img_dir='/kaggle/working/data_last/train', transform=transform)
 train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
 train_image, train_label = next(iter(train_loader))
 
 
-val_dataset = Four4All(csv_file='data/valid_labels.csv', 
-                       img_dir='data/valid/', transform=transform)
+val_dataset = Four4All(csv_file='/kaggle/working/data_last/valid_labels.csv', 
+                       img_dir='/kaggle/working/data_last/valid/', transform=transform)
 val_loader = DataLoader(val_dataset, batch_size=16, shuffle=True)
 val_image, val_label = next(iter(val_loader))
 
 
-test_dataset = Four4All(csv_file='data/test_labels.csv', 
-                        img_dir='data/test', transform=transform)
+test_dataset = Four4All(csv_file='/kaggle/working/data_last/test_labels.csv', 
+                        img_dir='/kaggle/working/data_last/test', transform=transform)
 test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False)
 test_image, test_label = next(iter(test_loader))
 
